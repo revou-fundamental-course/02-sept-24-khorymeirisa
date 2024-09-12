@@ -18,21 +18,21 @@ function openPopup(shape, type) {
             //ini bagian Form Luas
           formHTML = `
             <label for="base">Alas:</label>
-            <input type="number" id="base" placeholder="Masukkan Nilai Alas" required>
+            <input type="number" id="base" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Alas" required>
             <label for="height">Tinggi:</label>
-            <input type="number" id="height" placeholder="Masukkan Nilai Tinggi" required>
+            <input type="number" id="height" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Tinggi" required>
           `;
         } else {
             //ini bagian Form Keliling
           formHTML = `
             <label for="side1">Sisi 1:</label>
-            <input type="number" id="side1" placeholder="Masukkan Nilai Sisi 1" required>
+            <input type="number" id="side1" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Sisi 1" required>
             <label for="side2">Sisi 2:</label>
-            <input type="number" id="side2" placeholder="Masukkan Nilai Sisi 2" required>
+            <input type="number" id="side2" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Sisi 2" required>
             <label for="side3">Sisi 3:</label>
-            <input type="number" id="side3" placeholder="Masukkan Nilai Sisi 3" required>
+            <input type="number" id="side3" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Sisi 3" required>
           `;
-        }
+        } 
         break; 
         
       case "Jajar Genjang":
@@ -40,23 +40,23 @@ function openPopup(shape, type) {
             //untuk Form Luas Jajar Genjang
           formHTML = `
             <label for="baseJG">Alas:</label>
-            <input type="number" id="baseJG" placeholder="Masukkan Nilai Alas" required>
+            <input type="number" id="baseJG" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Alas" required>
             <label for="heightJG">Tinggi:</label>
-            <input type="number" id="heightJG" placeholder="Masukkan Nilai Tinggi" required>
+            <input type="number" id="heightJG" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Tinggi" required>
           `;
         } else {
              //untuk Form Luas Jajar Genjang
           formHTML = `
             <label for="baseJG">Alas:</label>
-            <input type="number" id="baseJG" placeholder="Masukkan Nilai Alas" required>
+            <input type="number" id="baseJG" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Alas" required>
             <label for="sideJG">Sisi Miring:</label>
-            <input type="number" id="sideJG" placeholder="Masukkan Nilai Sisi Miring" required>
+            <input type="number" id="sideJG" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nilai Sisi Miring" required>
           `;
         }
         break; 
       
     }
-    //ini untuk Tomobol Hasil
+    //ini untuk Tombol Hasil
     formHTML += `<button onclick="calculate('${shape}', '${type}')">Hitung ${type}</button>`;
     calculatorForm.innerHTML = formHTML;
     //INI UNTUK Tombol Reset TAPI MASIH PR
@@ -111,6 +111,21 @@ function openPopup(shape, type) {
       openPopup(shape, type);
     });
   });
+  //Menyatakan wajib Angka untuk setiap pengisian Form
+  function hanyaAngka(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+     if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+      return false;
+    return true;
+  }
   function reset() {
-    document.getElementById("myForm").reset();//ubah formnyaaaaaaaaaaaaaa
+    document.getElementById("calculatorForm").reset();//buat reset form
+  }
+  function validateForm() {
+    let x = document.forms["calculatorForm"]["fname"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
   }
