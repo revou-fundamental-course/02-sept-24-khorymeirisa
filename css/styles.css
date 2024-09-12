@@ -1,1 +1,24 @@
 /* Ini CSS */
+/* Ini CSS */
+.main-header{
+    text-align: center;
+}
+.garis-horizontal{
+    color:  rgb(156, 60, 247);
+}
+
+/* --- Bagian Footer --- */
+.footer{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    padding: 30px;
+    /*untuk gimana supaya textnya middle ?*/
+    color: #ffffff;
+    background-color: rgb(156, 60, 247);
+}
+@media only screen and (max-width: 480px){
+    .main-content {
+        flex-direction: column;
+    }
+}
