@@ -120,7 +120,7 @@ function openPopup(shape, type) {
     return true;
   }
   function reset() {
-    document.getElementById("calculatorForm").reset();//buat reset form
+    document.getElementById("calculatorForm").reset();//buat reset form nanti bikin habis kerja
   }
   function validateForm() {
     let x = document.forms["calculatorForm"]["fname"].value;
