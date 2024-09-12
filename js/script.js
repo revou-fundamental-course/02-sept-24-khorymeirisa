@@ -112,5 +112,5 @@ function openPopup(shape, type) {
     });
   });
   function reset() {
-    document.getElementById("myForm").reset();//ubah formnyaaa jangan lupa habis kerja ntar
+    document.getElementById("myForm").reset();//ubah formnyaaaaaaaaaaaaaa
   }
